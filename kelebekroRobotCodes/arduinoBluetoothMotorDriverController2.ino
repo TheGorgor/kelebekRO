@@ -1,3 +1,4 @@
+//Kütüphanesiz
 int motor1A = 2;
 int motor1B = 3;
 int motor2A = 4;
