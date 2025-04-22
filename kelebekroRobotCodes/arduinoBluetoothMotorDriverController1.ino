@@ -1,3 +1,4 @@
+//SoftwareSerial kütüphanesi ile
 #include <SoftwareSerial.h>
 
 int RX = 1; //HC-06 için 10 numarılı pin öneriliyor
