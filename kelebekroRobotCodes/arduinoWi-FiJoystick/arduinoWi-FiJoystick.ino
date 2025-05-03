@@ -5,7 +5,10 @@
 RF24 radio(9, 8);
 const byte address[6] = "GETRO";
 
-byte motorValues[2];
+struct motorValues{
+   int left;
+   int right;
+} motors;
 
 void setup() {
  
@@ -25,15 +28,15 @@ void setup() {
 
 void loop() {
   
-  motorValues[0] = map(analogRead(A3), 0, 1023, 0, 255);
-  motorValues[1] = map(analogRead(A5), 0, 1023, 0, 255);
+  motors.left = map(analogRead(A3), 0, 1023, 0, 255);
+  motors.right = map(analogRead(A5), 0, 1023, 0, 255);
 
-  radio.write(&motorValues, sizeof(motorValues));
+  radio.write(&motors, sizeof(motors));
 
   Serial.print("L: ");
-  Serial.println(motorValues[0]);
+  Serial.println(motors.left);
   Serial.print("R: ");
-  Serial.println(motorValues[1]);
+  Serial.println(motors.right);
 
   delay(100);
 
